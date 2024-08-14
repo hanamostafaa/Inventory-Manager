@@ -75,7 +75,7 @@ const get_items = async (req, res) => {
 
         res.json(groupedItems);
     } catch (err) {
-        console.error('Error in get_items:', err); // Log the error details
+        console.error('Error in get_items:', err); 
         res.status(500).json({ error: err.message });
     }
 };

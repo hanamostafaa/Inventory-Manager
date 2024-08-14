@@ -19,6 +19,7 @@ const signUp = async (req, res) => {
         }
 
         const user = await createUser(req.body);
+        console.log(user)
         const token = generateToken(user);
         res.status(201).json({ token, id: user.id });
     } catch (error) {
@@ -32,6 +33,9 @@ const login = async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
+        console.log(user)
+        console.log(req)
+        console.log(req.body.password)
 
         const isMatch = await bcrypt.compare(req.body.password, user.password);
         if (!isMatch) {
@@ -41,6 +45,7 @@ const login = async (req, res) => {
         const token = generateToken(user);
         res.status(200).json({ token, id: user.id });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Server error', error });
     }
 };

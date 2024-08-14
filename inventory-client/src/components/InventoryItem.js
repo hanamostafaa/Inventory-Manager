@@ -11,7 +11,7 @@ const InventoryItem = ({ item }) => {
             
             {item.mechanicalParts.length > 0 && (
                 <div>
-                    <h4>Mechanical Parts:</h4>
+                    <h4>Mechanical Part:</h4>
                     <ul>
                         {item.mechanicalParts.map(part => (
                             <li key={part.id}>
@@ -26,7 +26,7 @@ const InventoryItem = ({ item }) => {
             
             {item.rawMaterials.length > 0 && (
                 <div>
-                    <h4>Raw Materials:</h4>
+                    <h4>Raw Material:</h4>
                     <ul>
                         {item.rawMaterials.map(material => (
                             <li key={material.id}>
@@ -40,7 +40,7 @@ const InventoryItem = ({ item }) => {
             
             {item.electricalParts.length > 0 && (
                 <div>
-                    <h4>Electrical Parts:</h4>
+                    <h4>Electrical Part:</h4>
                     <ul>
                         {item.electricalParts.map(part => (
                             <li key={part.id}>

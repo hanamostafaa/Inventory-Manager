@@ -19,6 +19,7 @@ const Login = ({onLogin}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log(credentials);
             const response = await axios.post('http://localhost:8080/user/login', credentials);
             localStorage.setItem('token', response.data.token); 
             const userId = response.data.id; 

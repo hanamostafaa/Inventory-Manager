@@ -2,7 +2,9 @@ import pool from './db.js';
 import bcrypt from 'bcryptjs'; 
 
 const createUser = async (user) => {
+    console.log(user.password)
     const hashedPassword = await bcrypt.hash(user.password, 10);
+    console.log(hashedPassword)
     const query = `
         INSERT INTO "User" (user_name, email, password, phone_number, full_name)
         VALUES ($1, $2, $3, $4, $5) RETURNING *;
