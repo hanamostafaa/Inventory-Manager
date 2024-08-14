@@ -18,6 +18,8 @@ const AddItem = ({user_id,setChange,change}) => {
   const [voltage, setVoltage] = useState('');
   const [current, setCurrent] = useState('');
   const [powerRating, setPowerRating] = useState('');
+  //auth
+  const token = localStorage.getItem('token'); 
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -42,6 +44,7 @@ const AddItem = ({user_id,setChange,change}) => {
     fetch('http://localhost:8080/inventory/items', {  
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${token}`, 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),

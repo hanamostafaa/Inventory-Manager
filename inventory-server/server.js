@@ -13,7 +13,11 @@ const port = 8080;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({origin: '*'}));
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Using routes
 app.use("/user", router); //user router

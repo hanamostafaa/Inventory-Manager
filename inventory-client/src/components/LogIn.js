@@ -33,7 +33,7 @@ const Login = ({onLogin}) => {
     return (
         <div className="login-container">
              <p>
-                    Already have an account? <Link to="/signup" className="link">Sign Up</Link>
+                    Don't have an account? <Link to="/signup" className="link">Sign Up</Link>
                 </p>
             <div className="login-form">
                 <h2>Login</h2>

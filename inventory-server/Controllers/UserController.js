@@ -6,8 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const generateToken = (user) => {
+    console.log(process.env.JWT_EXPIRES_IN)
     return jwt.sign({ id: user.id, user_name: user.user_name }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
+        expiresIn: process.env.JWT_EXPIRES_IN, 
     });
 };
 
@@ -21,6 +22,7 @@ const signUp = async (req, res) => {
         const user = await createUser(req.body);
         console.log(user)
         const token = generateToken(user);
+        console.log(token)
         res.status(201).json({ token, id: user.id });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
@@ -43,6 +45,7 @@ const login = async (req, res) => {
         }
 
         const token = generateToken(user);
+        console.log(token)
         res.status(200).json({ token, id: user.id });
     } catch (error) {
         console.log(error);

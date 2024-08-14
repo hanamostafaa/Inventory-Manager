@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import InventoryItem from './InventoryItem';
-import '../styles/inventory.css'; // Import the CSS file
+import '../styles/inventory.css'; 
 
-const InventoryList = ({user_id,change}) => {
-    console.log(user_id)
+const InventoryList = ({ user_id, change }) => {
     const [items, setItems] = useState([]);
+    const token = localStorage.getItem('token'); 
 
     useEffect(() => {
-        console.log('fetchingg')
-        fetch(`http://localhost:8080/inventory/items/${user_id}`)
-            .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setItems(data);
-                } else {
-                    console.error('Expected an array but got:', data);
-                    setItems([]); // 
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching items:', error);
+        console.log('fetching items for user_id:', user_id);
+        console.log(token)
+
+        fetch(`http://localhost:8080/inventory/items/${user_id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('network error');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (Array.isArray(data)) {
+                setItems(data);
+            } else {
+                console.error('Expected an array but got:', data);
                 setItems([]); 
-            });
-    }, [change]);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching items:', error);
+            setItems([]); 
+        });
+    }, [change, user_id]); 
 
     return (
         <div className="container inventory-list">
