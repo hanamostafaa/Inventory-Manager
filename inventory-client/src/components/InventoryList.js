@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InventoryItem from './InventoryItem';
 import '../styles/inventory.css'; // Import the CSS file
 
-const InventoryList = ({user_id}) => {
+const InventoryList = ({user_id,change}) => {
     console.log(user_id)
     const [items, setItems] = useState([]);
 
@@ -22,7 +22,7 @@ const InventoryList = ({user_id}) => {
                 console.error('Error fetching items:', error);
                 setItems([]); 
             });
-    }, []);
+    }, [change]);
 
     return (
         <div className="container inventory-list">

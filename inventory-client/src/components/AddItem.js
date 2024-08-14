@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import '../styles/inventory.css';
 
-const AddItem = ({user_id}) => {
+const AddItem = ({user_id,setChange,change}) => {
   //inv attributes
   const [type, setType] = useState('');
   const [name, setName] = useState('');
@@ -49,7 +49,8 @@ const AddItem = ({user_id}) => {
       .then(response => response.json())
       .then(data => {
         console.log('Item added:', data);
-        
+        setChange(!change);
+
       })
       .catch(error => console.error('Error adding item:', error));
   };

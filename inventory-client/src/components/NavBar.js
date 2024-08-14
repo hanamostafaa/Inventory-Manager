@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <div className="logo">MyApp</div>
+        <div className="logo">Inventory Manager</div>
         <div className="nav-elements">
           <ul>
             <li>
