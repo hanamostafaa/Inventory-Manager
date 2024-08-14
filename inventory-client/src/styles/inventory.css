@@ -1,14 +1,11 @@
-/* inventory.css */
 
-/* General styling for the inventory components */
 .container {
     padding: 20px;
     font-family: Arial, sans-serif;
   }
   
-  /* AddItem component styling */
   .add-item-form {
-    background-color: #f9f9f9;
+    background-color: #cee7fc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,7 +22,7 @@
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
-    color: #555;
+    color: #2c2b2b;
   }
   
   .add-item-form input {
@@ -37,12 +34,10 @@
     box-sizing: border-box;
   }
   
-  .add-item-form input[type="number"] {
-    width: calc(100% - 22px);
-  }
+
   
   .add-item-form button {
-    background-color: #007bff;
+    background-color: #295e3a;
     color: #fff;
     padding: 10px;
     border: none;
@@ -65,7 +60,6 @@
     margin-right: 15px;
   }
   
-  /* InventoryItem component styling */
   .inventory-item {
     border-bottom: 1px solid #ddd;
     padding: 10px;
@@ -84,22 +78,13 @@
   .inventory-item div {
     margin-top: 10px;
   }
-  
-  /* InventoryList component styling */
+
+
   .inventory-list {
     max-width: 800px;
     margin: 0 auto;
   }
-  
-  .inventory-list h2 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .inventory-list ul {
-    list-style-type: none;
-    padding: 0;
-  }
+ 
   
   .inventory-list li {
     padding: 15px;

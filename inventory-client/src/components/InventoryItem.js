@@ -2,6 +2,7 @@
 import React from 'react';
 import '../styles/inventory.css';
 
+//DISPLAY EACH INV ITEM ACCORDING TO ITS TYPE
 const InventoryItem = ({ item }) => {
     return (
         <li className="inventory-item">

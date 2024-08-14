@@ -1,5 +1,5 @@
-import pool from './db.js'; // Ensure db.js is an ES module or use .cjs for CommonJS
-import bcrypt from 'bcryptjs'; // Ensure this matches the library used elsewhere
+import pool from './db.js'; 
+import bcrypt from 'bcryptjs'; 
 
 const createUser = async (user) => {
     const hashedPassword = await bcrypt.hash(user.password, 10);

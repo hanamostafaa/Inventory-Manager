@@ -23,12 +23,12 @@ const get_items = async (req, res) => {
             LEFT JOIN RawMaterial rm ON ii.id = rm.inventory_item_id
             LEFT JOIN ElectricalPart ep ON ii.id = ep.inventory_item_id
             WHERE ii.user_id = $1
-        `, [user_id]); // Filter by user_id
+        `, [user_id]); 
         if (!inventoryItems.rows) {
-            throw new Error('No data returned from database query');
+            throw new Error("no inv items");
         }
 
-        console.log('Inventory Items:', inventoryItems.rows); // Add this line to log the retrieved data
+        //console.log('inv items:', inventoryItems.rows); 
 
         const groupedItems = inventoryItems.rows.reduce((acc, row) => {
             let item = acc.find(i => i.id === row.item_id);
@@ -83,14 +83,16 @@ const add_item = async (req, res) => {
     const {user_id, name, quantity, type, material, dimensions, weight, rawType, purity, voltage, current, powerRating } = req.body;
     
     try {
-        // Insert the inventory item
+        //insert in parent table
         const result = await pool.query(
             `INSERT INTO InventoryItem (user_id, name, quantity) VALUES ($1, $2, $3) RETURNING id`,
             [user_id,name, quantity]
         );
         const itemId = result.rows[0].id;
 
-        // Insert into the relevant table based on the type
+        //insert in child tables
+        //ASSUMING INVENTORY ITEM CAN ONLY HAVE ONE TYPEE
+
         if (type === 'mechanical') {
             await pool.query(
                 `INSERT INTO MechanicalPart (material, dimensions, weight, inventory_item_id) VALUES ($1, $2, $3, $4)`,

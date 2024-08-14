@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs'; // Ensure this matches the library used in UserModel.js
-import { createUser, findUserByUserName } from '../models/UserModel.js'; // Update import path if needed
+import bcrypt from 'bcryptjs'; 
+import { createUser, findUserByUserName } from '../models/UserModel.js'; 
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,7 +15,7 @@ const signUp = async (req, res) => {
     try {
         const existingUser = await findUserByUserName(req.body.user_name);
         if (existingUser) {
-            return res.status(400).json({ message: 'User name already exists' });
+            return res.status(400).json({ message: 'username already exists' });
         }
 
         const user = await createUser(req.body);

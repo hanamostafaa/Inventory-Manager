@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({origin: '*'}));
 
 // Using routes
-app.use("/user", router);
-app.use("/inventory", inv_router);
+app.use("/user", router); //user router
+app.use("/inventory", inv_router); //inventory router
 
 
 app.use((req, res, next) => {

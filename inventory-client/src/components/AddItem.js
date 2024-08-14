@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import '../styles/inventory.css';
 
 const AddItem = ({user_id}) => {
+  //inv attributes
   const [type, setType] = useState('');
   const [name, setName] = useState('');
+  //mechanical
   const [quantity, setQuantity] = useState('');
   const [material, setMaterial] = useState('');
   const [dimensions, setDimensions] = useState('');
   const [weight, setWeight] = useState('');
+  //raw material
   const [rawType, setRawType] = useState('');
   const [purity, setPurity] = useState('');
+  //electrical
   const [voltage, setVoltage] = useState('');
   const [current, setCurrent] = useState('');
   const [powerRating, setPowerRating] = useState('');
@@ -45,7 +49,7 @@ const AddItem = ({user_id}) => {
       .then(response => response.json())
       .then(data => {
         console.log('Item added:', data);
-        // Optionally clear the form or handle the response
+        
       })
       .catch(error => console.error('Error adding item:', error));
   };

@@ -11,17 +11,16 @@ const InventoryList = ({user_id}) => {
         fetch(`http://localhost:8080/inventory/items/${user_id}`)
             .then(response => response.json())
             .then(data => {
-                // Ensure the data is an array
                 if (Array.isArray(data)) {
                     setItems(data);
                 } else {
                     console.error('Expected an array but got:', data);
-                    setItems([]); // Set to an empty array if not an array
+                    setItems([]); // 
                 }
             })
             .catch(error => {
                 console.error('Error fetching items:', error);
-                setItems([]); // Handle fetch error
+                setItems([]); 
             });
     }, []);
 

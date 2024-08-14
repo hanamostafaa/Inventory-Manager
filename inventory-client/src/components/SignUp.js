@@ -29,8 +29,8 @@ const SignUp = ({onSignUp}) => {
             const response = await axios.post('http://localhost:8080/user/signup', formData);
             const userId = response.data.id; // Extract the user ID
             console.log(response.data);
-            onSignUp(); // Notify parent component of successful sign-up
-            navigate(`/Inventory/${userId}`); // Redirect to the inventory page with user ID
+            onSignUp(); 
+            navigate(`/Inventory/${userId}`); 
         } catch (error) {
             console.error('Sign-up error:', error);
             if (error.response && error.response.data) {

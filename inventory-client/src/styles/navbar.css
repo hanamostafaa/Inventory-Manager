@@ -1,7 +1,7 @@
 
 .navbar {
-    background-color: #333; /* Dark background color */
-    padding: 10px 20px; /* Space around the content */
+    background-color: #333; 
+    padding: 10px 20px; 
   }
   
   .container {
@@ -27,6 +27,7 @@
   
   .nav-elements li {
     margin: 0 10px;
+    padding:20px;
   }
   
   .nav-elements a {
@@ -36,11 +37,4 @@
     transition: color 0.3s ease;
   }
   
-  .nav-elements a.active {
-    color: #f0f0f0; /* Active link color */
-  }
-  
-  .nav-elements a:hover {
-    color: #aaa; /* Link color on hover */
-  }
   

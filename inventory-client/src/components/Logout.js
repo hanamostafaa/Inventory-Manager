@@ -5,9 +5,9 @@ const Logout = ({ onLogout }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('token'); // Remove the token from local storage
-        onLogout(); // Notify parent component of logout
-        navigate('/login'); // Redirect to login page
+        localStorage.removeItem('token'); 
+        onLogout();
+        navigate('/login'); 
     };
 
     return (

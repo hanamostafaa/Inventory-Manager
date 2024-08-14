@@ -11,7 +11,6 @@ const InventoryPage = () => {
 
     return (
         <div>
-        <NavBar />
         <div>
             <h1>Inventory Page</h1>
             <AddItem user_id={user_id} />

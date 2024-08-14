@@ -20,10 +20,10 @@ const Login = ({onLogin}) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/user/login', credentials);
-            localStorage.setItem('token', response.data.token); // Save the token in local storage
-            const userId = response.data.id; // Extract the user ID
-            onLogin(); // Notify parent component of successful login
-            navigate(`/Inventory/${userId}`); // Redirect to the inventory page with user ID
+            localStorage.setItem('token', response.data.token); 
+            const userId = response.data.id; 
+            onLogin(); 
+            navigate(`/Inventory/${userId}`); 
         } catch (error) {
             console.error('Login error:', error.response.data);
         }
